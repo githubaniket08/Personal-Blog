@@ -1,3 +1,13 @@
+/* CSS Variables */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #36a8a8;
+    --background-gradient: linear-gradient(120deg, #e0eaff, #d9f9d9);
+    --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --font-family: 'Poppins', sans-serif;
+}
+
 /* Reset default margin and padding */
 * {
     margin: 0;
@@ -7,8 +17,8 @@
 
 /* Global Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(120deg, #f5f5f5, #d9f9d9);
+    font-family: var(--font-family);
+    background: var(--background-gradient);
     margin: 0;
     padding: 20px;
     display: flex;
@@ -23,19 +33,25 @@ section {
     padding: 2.5rem;
     width: 90%;
     max-width: 900px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
     text-align: center;
     margin-top: 30px;
     border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
 /* Header */
 header {
-    background: linear-gradient(90deg, #4CAF50, #36a8a8);
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     color: white;
     padding: 2.5rem;
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     margin-bottom: 2rem;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
@@ -52,10 +68,10 @@ header p {
 
 /* Section Titles */
 h2 {
-    color: #4CAF50;
+    color: var(--primary-color);
     font-size: 1.8rem;
     margin-bottom: 1.2rem;
-    border-bottom: 2px solid #4CAF50;
+    border-bottom: 2px solid var(--primary-color);
     display: inline-block;
     padding-bottom: 5px;
 }
@@ -74,18 +90,24 @@ ul li {
     display: flex;
     align-items: center;
     font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+ul li:hover {
+    background-color: #d0efd0;
+    transform: translateX(5px);
 }
 
 ul li::before {
     content: "✔️";
     margin-right: 0.75rem;
-    color: #4CAF50;
+    color: var(--primary-color);
     font-size: 1.2rem;
 }
 
 /* Links */
 a {
-    color: #4CAF50;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
@@ -114,7 +136,7 @@ dl dd {
 blockquote {
     font-style: italic;
     color: #555;
-    border-left: 4px solid #4CAF50;
+    border-left: 4px solid var(--primary-color);
     padding-left: 1.5rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
